@@ -1,0 +1,70 @@
+.path-blocks-behaviour #legend {
+    white-space: nowrap;
+    overflow: auto;
+    border: 1px solid lightgrey;
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+.path-blocks-behaviour #slider {
+    width: 96%;
+    left: 16px;
+}
+
+.path-blocks-behaviour td {
+    vertical-align: top;
+}
+
+.path-blocks-behaviour .bigger {
+    font-size: 1.8em;
+}
+
+/* adapted from https://www.w3schools.com/howto/howto_js_treeview.asp */
+/* Remove default bullets */
+.path-blocks-behaviour ul,
+.path-blocks-behaviour #legendUL {
+    list-style-type: none;
+    margin-left: 8px;
+    padding: 0;
+}
+.path-blocks-behaviour .indented {
+    margin-left: 16px;
+}
+.path-blocks-behaviour #legendUL {
+    margin: 4px;
+}
+/* Style the caret/arrow */
+.path-blocks-behaviour .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+}
+/* Create the caret/arrow with a unicode, and style it */
+.path-blocks-behaviour .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 4px;
+}
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.path-blocks-behaviour .caret-down::before {
+    transform: rotate(90deg);
+}
+/* Hide the nested list */
+.path-blocks-behaviour .nested {
+    display: none;
+}
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.path-blocks-behaviour .active {
+    display: block;
+}
+
+/* from https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+.path-blocks-behaviour .no-select-text {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome and Opera */
+}
