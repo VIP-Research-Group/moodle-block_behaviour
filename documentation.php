@@ -131,7 +131,7 @@ echo html_writer::tag('a', get_string('docspublications', 'block_behaviour'), ar
 echo html_writer::empty_tag('br');
 
 echo html_writer::tag('a', get_string('docsissues', 'block_behaviour'), array(
-    'href' => 'https://github.com/Behaviour-Analytics/moodle-block_behaviour/issues'));
+    'href' => 'https://github.com/VIP-Research-Group/moodle-block_behaviour/issues'));
 echo html_writer::empty_tag('br');
 
 echo html_writer::empty_tag('br');
