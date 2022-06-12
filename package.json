@@ -8,7 +8,7 @@
   "homepage": "https://moodle.org/plugins/block_behaviour",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Behaviour-Analytics/moodle-block_behaviour"
+    "url": "https://github.com/VIP-Research-Group/moodle-block_behaviour"
   },
   "license": "GPL-3.0-or-later",
     "engines": {

@@ -4,6 +4,7 @@ Version: 0.9.1
   Added "Publications" section to documentation.
   Change node mouse over iframe timeout from 750 to 400.
   Weight slider default is now 0.
+  Changed repository.
 
 Version: 0.9.0
   Finish survey management feature.
