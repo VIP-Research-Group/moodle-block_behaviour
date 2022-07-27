@@ -212,7 +212,7 @@ $PAGE->requires->js_init_call('waitForModules', array($out), true);
 $PAGE->requires->js('/blocks/behaviour/javascript/dashboard.js');
 
 // Finish setting up page.
-$PAGE->set_pagelayout('standard');
+$PAGE->set_pagelayout('base');
 $PAGE->set_heading($course->fullname);
 
 // Output page.

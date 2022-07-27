@@ -746,7 +746,7 @@
                 makeTeacherMenu();
             }
 
-            initGraph(0.6);
+            initGraph(0);
             makeNodeLegend();
             makeWeightControl();
 
@@ -772,7 +772,7 @@
             weightSlider.min = '-0.2';
             weightSlider.max = '1';
             weightSlider.step = '0.2';
-            weightSlider.value = '0.0';
+            weightSlider.value = '0';
             weightSlider.style.width = '130px';
             weightSlider.addEventListener('change', function() {
                 linkForce.strength(this.value);
@@ -1790,7 +1790,7 @@
             nodeLegend.style.height = height + 'px';
             nodeLegend.style.minWidth = legendWidth + 'px';
             nodeLegend.style.maxWidth = maxWidth + 'px';
-            nodeLegend.style.marginTop = '50px';
+            nodeLegend.style.marginTop = incoming.version40 ? '200px' : '50px';
 
             // Allow legend to be resized.
             // Adapted from https://stackoverflow.com/questions/26233180/resize-a-
@@ -1799,7 +1799,10 @@
             // Reshape mouse pointer when over left legend edge.
             var legendMove = function(e) {
 
-                var wd = nodeLegend.offsetLeft + 28;
+                var wd = nodeLegend.offsetLeft;
+                if (!incoming.version36) {
+                    wd += 28;
+                }
 
                 if (e.x >= wd && e.x <= wd + 6) {
                     nodeLegend.style.cursor = 'col-resize';
@@ -2610,7 +2613,7 @@
                 } // End if option selected.
             } // End for any student who are checked.
 
-            if (!useLSA && Object.keys(lordLinks).length == 0) {
+            if (!useLSA) {
                 simulation.force('link').links(links);
             }
             makeLinks(links);
@@ -6514,7 +6517,7 @@
 
             // At centroid level.
             var scy = cluster ? centroids[key].y : scaledCentroids[key].y;
-            var tby = scy + 220;
+            var tby = incoming.version40 ? ddd.event.y : scy + 220;
             textBox.style.top = tby + 'px';
 
             // The save button.

@@ -308,20 +308,23 @@ function block_behaviour_get_graph_data($coordid, $userid, &$course, &$mods, &$m
         'userid' => $userid
     );
 
-    // Get the LORD integration options.
-    $lord = $DB->get_record('block_behaviour_lord_options', $params);
+    if (get_config('block_behaviour', 'uselord')) {
 
-    // Try to get the LORD graph data, if configured.
-    if ($lord && $lord->uselord) {
+        // Get the LORD integration options.
+        $lord = $DB->get_record('block_behaviour_lord_options', $params);
 
-        list($coordsid, $scale, $nodes, $numnodes) =
-            block_behaviour_get_lord_scale_and_node_data($coordid, $userid, $course, $lord->usecustom);
-        $links = block_behaviour_get_lord_link_data($course->id, $coordsid);
+        // Try to get the LORD graph data, if configured.
+        if ($lord && $lord->uselord) {
 
-        // When called from replay.php, always have coordid and don't want to do this.
-        // Modules may have been added or removed from the course, so revert to regular graph.
-        if (!$coordid && !block_behaviour_are_mods_nodes($nodes, $modids)) {
-            $links = [];
+            list($coordsid, $scale, $nodes, $numnodes) =
+                block_behaviour_get_lord_scale_and_node_data($coordid, $userid, $course, $lord->usecustom);
+            $links = block_behaviour_get_lord_link_data($course->id, $coordsid);
+
+            // When called from replay.php, always have coordid and don't want to do this.
+            // Modules may have been added or removed from the course, so revert to regular graph.
+            if (!$coordid && !block_behaviour_are_mods_nodes($nodes, $modids)) {
+                $links = [];
+            }
         }
     }
 
@@ -1905,7 +1908,7 @@ function block_behaviour_get_survey_responses($course, $surveyid, $shownames) {
         );
         $thead[] = $q->ordering;
         $thead[] = $q->qtext;
-        $csv .= $q->ordering . ',"' . $q->qtext . '",';
+        $csv .= $q->ordering . ',"' . str_replace('"', '""', $q->qtext) . '",';
     }
     $csv .= PHP_EOL;
 
@@ -1952,7 +1955,8 @@ function block_behaviour_get_survey_responses($course, $surveyid, $shownames) {
                 if (is_numeric($question['rsps'][$studentid])) {
                     $row[] = new html_table_cell(html_writer::div($question['rsps'][$studentid] + 1));
                     $row[] = new html_table_cell(html_writer::div($question['options'][$question['rsps'][$studentid]]));
-                    $csv .= ($question['rsps'][$studentid] + 1) . ',"' . $question['options'][$question['rsps'][$studentid]] . '",';
+                    $csv .= ($question['rsps'][$studentid] + 1) . ',"' .
+                         str_replace('"', '""', $question['options'][$question['rsps'][$studentid]]) . '",';
 
                 } else if ($question['qtype'] == 'multiple') {
                     $boxes = explode(',', $question['rsps'][$studentid]);
@@ -1966,7 +1970,7 @@ function block_behaviour_get_survey_responses($course, $surveyid, $shownames) {
                             $mrsps1 .= html_writer::div($v);
                             $mrsps2 .= html_writer::div($question['options'][$k]);
                             $csv1 .= $v . '-';
-                            $csv2 .= $question['options'][$k] . '-';
+                            $csv2 .= str_replace('"', '""', $question['options'][$k]) . '-';
                         }
                     }
                     $row[] = new html_table_cell(html_writer::div($mrsps1));
@@ -1976,7 +1980,7 @@ function block_behaviour_get_survey_responses($course, $surveyid, $shownames) {
                 } else { // Open ended question.
                     $row[] = new html_table_cell(html_writer::div(''));
                     $row[] = new html_table_cell(html_writer::div($question['rsps'][$studentid]));
-                    $csv .= ',"' . $question['rsps'][$studentid] . '",';
+                    $csv .= ',"' . str_replace('"', '""', $question['rsps'][$studentid]) . '",';
                 }
 
             } else {
@@ -2821,7 +2825,8 @@ function block_behaviour_get_ls_of_lo(&$course, $shownames) {
         $row = [];
         $row[] = new html_table_cell(html_writer::div($modules[$r->moduleid]['name'], '', $params));
         $row[] = new html_table_cell(html_writer::div($modules[$r->moduleid]['type'], '', $params));
-        $csv .= '"' . $modules[$r->moduleid]['name'] . '","' . $modules[$r->moduleid]['type'] . '",';
+        $csv .= '"' . str_replace('"', '""', $modules[$r->moduleid]['name']) . '","' .
+             $modules[$r->moduleid]['type'] . '",';
 
         foreach ($arr as $a) {
             $row[] = new html_table_cell(html_writer::div($a, ''));

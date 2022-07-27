@@ -53,6 +53,7 @@ $event->trigger();
 // Some values needed here.
 $debugcentroids = false;
 $version36 = $CFG->version >= 2018120310 ? true : false;
+$version40 = intval($CFG->branch) >= 400 ? true : false;
 $panelwidth = 40;
 $legendwidth = 180;
 $globallogs = null;
@@ -222,6 +223,7 @@ $out = array(
     'strings'        => block_behaviour_get_lang_strings(),
     'sesskey'        => sesskey(),
     'version36'      => $version36,
+    'version40'      => $version40,
     'iframeurl'      => (string) new moodle_url('/'),
     'coordsscript'   => (string) new moodle_url('/blocks/behaviour/update-coords.php'),
     'clustersscript' => (string) new moodle_url('/blocks/behaviour/update-clusters.php'),
@@ -251,7 +253,7 @@ $PAGE->requires->js_init_call('waitForModules', array($out), true);
 $PAGE->requires->js('/blocks/behaviour/javascript/main.js');
 
 // Finish setting up page.
-$PAGE->set_pagelayout('standard');
+$PAGE->set_pagelayout('base');
 $PAGE->set_heading($course->fullname);
 
 // Output page.

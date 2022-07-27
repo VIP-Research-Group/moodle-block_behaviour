@@ -24,7 +24,7 @@
  */
 
 $string['title'] = 'Behaviour Analytics';
-$string['blocktitle'] = 'Behaviour Analytics (v0.9.1)';
+$string['blocktitle'] = 'Behaviour Analytics (v0.9.2)';
 $string['pluginname'] = 'Behaviour Analytics';
 $string['behaviour'] = 'Behaviour Analytics';
 $string['behaviour:view'] = 'View Behaviour Analytics';
