@@ -28,7 +28,7 @@ require_once("$CFG->dirroot/blocks/behaviour/locallib.php");
 
 defined('MOODLE_INTERNAL') || die();
 
-$courseid  = required_param('cid', PARAM_INT);
+$courseid = required_param('cid', PARAM_INT);
 $data = required_param('data', PARAM_RAW);
 
 require_sesskey();

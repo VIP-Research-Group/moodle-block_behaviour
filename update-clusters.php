@@ -35,7 +35,7 @@ require_once("$CFG->dirroot/blocks/behaviour/locallib.php");
 
 defined('MOODLE_INTERNAL') || die();
 
-$courseid  = required_param('cid', PARAM_INT);
+$courseid = required_param('cid', PARAM_INT);
 $clstrdata = required_param('data', PARAM_RAW);
 
 require_sesskey();
@@ -61,14 +61,14 @@ $data = [];
 foreach ($clusterdata->clusterCoords as $cc) {
 
     $data[] = (object) array(
-        'courseid'     => $courseid,
-        'userid'       => $userid,
-        'coordsid'     => $clusterdata->coordsid,
-        'clusterid'    => $clusterdata->clusterId,
-        'iteration'    => $clusterdata->iteration,
-        'clusternum'   => $cc->num,
-        'centroidx'    => $cc->x,
-        'centroidy'    => $cc->y,
+        'courseid' => $courseid,
+        'userid' => $userid,
+        'coordsid' => $clusterdata->coordsid,
+        'clusterid' => $clusterdata->clusterId,
+        'iteration' => $clusterdata->iteration,
+        'clusternum' => $cc->num,
+        'centroidx' => $cc->x,
+        'centroidy' => $cc->y,
         'usegeometric' => $clusterdata->usegeometric
     );
 }
@@ -83,15 +83,15 @@ foreach ($clusterdata->members as $cluster) {
     foreach ($cluster as $member) {
 
         $data[] = (object) array(
-            'courseid'   => $courseid,
-            'userid'     => $userid,
-            'coordsid'   => $clusterdata->coordsid,
-            'clusterid'  => $clusterdata->clusterId,
-            'iteration'  => $clusterdata->iteration,
+            'courseid' => $courseid,
+            'userid' => $userid,
+            'coordsid' => $clusterdata->coordsid,
+            'clusterid' => $clusterdata->clusterId,
+            'iteration' => $clusterdata->iteration,
             'clusternum' => $member->num,
-            'studentid'  => $member->id,
-            'centroidx'  => $member->x,
-            'centroidy'  => $member->y
+            'studentid' => $member->id,
+            'centroidx' => $member->x,
+            'centroidy' => $member->y
         );
     }
 }

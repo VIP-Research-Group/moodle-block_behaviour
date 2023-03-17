@@ -31,7 +31,7 @@ require_once("$CFG->dirroot/blocks/behaviour/locallib.php");
 defined('MOODLE_INTERNAL') || die();
 
 $courseid = required_param('cid', PARAM_INT);
-$remdata  = required_param('data', PARAM_RAW);
+$remdata = required_param('data', PARAM_RAW);
 
 require_sesskey();
 
@@ -56,13 +56,13 @@ $remark->remark = str_replace('%amp;', '&', $remark->remark);
 
 // Simple DB table insertion.
 $DB->insert_record('block_behaviour_comments', (object) array(
-    'courseid'  => $courseid,
-    'userid'    => $userid,
-    'coordsid'  => $remark->coordsid,
+    'courseid' => $courseid,
+    'userid' => $userid,
+    'coordsid' => $remark->coordsid,
     'clusterid' => $remark->clusterid,
     'studentid' => $remark->studentid,
     'commentid' => time(),
-    'remark'    => $remark->remark
+    'remark' => $remark->remark
 ));
 
 die('Comments updated: '.$remark->remark.' '.$courseid.' '.$course->id);

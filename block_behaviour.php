@@ -221,9 +221,9 @@ class block_behaviour extends block_base {
             $returned = $imform->block_behaviour_import($context);
             $result = $DB->get_record('block_behaviour_installed', array('courseid' => $COURSE->id));
             $DB->update_record('block_behaviour_installed', (object) array(
-                'id'           => $result->id,
-                'courseid'     => $result->courseid,
-                'lastsync'     => $result->lastsync,
+                'id' => $result->id,
+                'courseid' => $result->courseid,
+                'lastsync' => $result->lastsync,
                 'importresult' => $returned
             ));
         }
@@ -234,13 +234,13 @@ class block_behaviour extends block_base {
 
         // JavaScript to uncheck the boxes after export and to remove file name after import.
         $out = array(
-            'url'       => (string) new moodle_url('/blocks/behaviour/get-import-result.php'),
-            'courseid'  => $COURSE->id,
-            'name'      => explode(' ', $COURSE->shortname)[0],
-            'dndmsg'    => get_string('dndenabled_inbox'),
+            'url' => (string) new moodle_url('/blocks/behaviour/get-import-result.php'),
+            'courseid' => $COURSE->id,
+            'name' => explode(' ', $COURSE->shortname)[0],
+            'dndmsg' => get_string('dndenabled_inbox'),
             'wrongfile' => get_string('wrongfile', 'block_behaviour'),
-            'nofile'    => get_string('nofile', 'block_behaviour'),
-            'sesskey'   => sesskey(),
+            'nofile' => get_string('nofile', 'block_behaviour'),
+            'sesskey' => sesskey(),
         );
         $this->page->requires->js(new moodle_url('/blocks/behaviour/javascript/forms.js'));
         $this->page->requires->js_init_call('init', array($out), true);

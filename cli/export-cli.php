@@ -61,7 +61,7 @@ try {
 }
 
 // Ensure we are exporting logs.
-$includepast    = 0;
+$includepast = 0;
 $includecurrent = 0;
 
 // Including past logs?

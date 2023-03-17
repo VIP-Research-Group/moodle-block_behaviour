@@ -36,7 +36,7 @@ defined('MOODLE_INTERNAL') || die();
 
 // Determine which logs to export and tail of file name.
 $includecurrent = 0;
-$includepast    = 0;
+$includepast = 0;
 
 $append = get_string('exportall', 'block_behaviour');
 

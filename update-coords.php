@@ -68,19 +68,19 @@ foreach ($nodedata->nodes as $key => $value) {
 
     $data[] = (object) array(
         'courseid' => $courseid,
-        'userid'   => $userid,
-        'changed'  => $coordsid,
+        'userid' => $userid,
+        'changed' => $coordsid,
         'moduleid' => $key,
-        'xcoord'   => $value->xcoord,
-        'ycoord'   => $value->ycoord,
-        'visible'  => $value->visible
+        'xcoord' => $value->xcoord,
+        'ycoord' => $value->ycoord,
+        'visible' => $value->visible
     );
 
     // Copy nodes for use in centroid calculations.
     $nds[$key] = array(
-        'xcoord'   => $value->xcoord,
-        'ycoord'   => $value->ycoord,
-        'visible'  => $value->visible
+        'xcoord' => $value->xcoord,
+        'ycoord' => $value->ycoord,
+        'visible' => $value->visible
     );
 }
 // Store new node coordinates.
@@ -88,21 +88,21 @@ $DB->insert_records('block_behaviour_coords', $data);
 
 $DB->insert_record('block_behaviour_scales', (object) array(
     'courseid' => $courseid,
-    'userid'   => $userid,
+    'userid' => $userid,
     'coordsid' => $coordsid,
-    'scale'    => $scale
+    'scale' => $scale
 ));
 
 if (isset($nodedata->links)) {
     $data = [];
     foreach ($nodedata->links as $link) {
         $data[] = (object) array(
-            'courseid'  => $courseid,
-            'userid'    => $userid,
-            'coordsid'  => $coordsid,
-            'modid1'    => $link->source->id,
-            'modid2'    => $link->target->id,
-            'value'     => $link->value,
+            'courseid' => $courseid,
+            'userid' => $userid,
+            'coordsid' => $coordsid,
+            'modid1' => $link->source->id,
+            'modid2' => $link->target->id,
+            'value' => $link->value,
             'frequency' => $link->frequency,
             'studentids' => $link->studentids,
         );

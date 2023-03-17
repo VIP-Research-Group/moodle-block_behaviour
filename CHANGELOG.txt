@@ -1,3 +1,7 @@
+Version: 0.9.3
+  Tested on Moodle 4.1
+  Removed extra whitespace as per code checker plugin
+
 Version: 0.9.2
   Changed standard page type to base in view, position, replay, dashboard scripts.
   Change the position of the node legend when configuring for 4.0.

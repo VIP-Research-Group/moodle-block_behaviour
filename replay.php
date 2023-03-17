@@ -65,7 +65,7 @@ list($mods, $modids) = block_behaviour_get_course_info($course);
 
 $replay = [];
 $manual = [];
-$users  = [];
+$users = [];
 $isresearcher = false;
 
 // If user is researcher, get all users for this course.
@@ -115,12 +115,12 @@ for ($i = 0; $i < count($users); $i++) {
         block_behaviour_check_got_all_mods($mods, $nodes, $modids);
 
         $replay[$dataset][$coordid] = array(
-            'mods'  => $mods,
+            'mods' => $mods,
             'nodes' => $nodes,
             'links' => $links,
             'scale' => $scale,
-            'last'  => $coordsid,
-            'logs'  => $logs,
+            'last' => $coordsid,
+            'logs' => $logs,
             'users' => $userinfo,
             'islsa' => $islsa,
         );
@@ -128,7 +128,7 @@ for ($i = 0; $i < count($users); $i++) {
         // Get all clustering data for this data set.
         $clusters = $DB->get_records('block_behaviour_clusters', array(
             'courseid' => $course->id,
-            'userid'   => $users[$i],
+            'userid' => $users[$i],
             'coordsid' => $coordid
         ), 'clusterid, iteration, clusternum');
 
@@ -155,7 +155,7 @@ for ($i = 0; $i < count($users); $i++) {
             $replay[$dataset][$coordid][$run->clusterid][$run->iteration][$run->clusternum] = array(
                 'centroidx' => $run->centroidx,
                 'centroidy' => $run->centroidy,
-                'members'   => $thesemembers
+                'members' => $thesemembers
             );
         } // End for each clusters.
 
@@ -168,7 +168,7 @@ for ($i = 0; $i < count($users); $i++) {
         // Get all clustering data for this data set.
         $clusters = $DB->get_records('block_behaviour_man_clusters', array(
             'courseid' => $course->id,
-            'userid'   => $users[$i],
+            'userid' => $users[$i],
             'coordsid' => $coordid
         ), 'clusterid, iteration, clusternum');
 
@@ -193,7 +193,7 @@ for ($i = 0; $i < count($users); $i++) {
             $manual[$dataset][$coordid][$run->clusterid][$run->iteration][$run->clusternum] = array(
                 'centroidx' => $run->centroidx,
                 'centroidy' => $run->centroidy,
-                'members'   => $thesemembers
+                'members' => $thesemembers
             );
         } // End for each clusters.
     } // End for each coordsids.
@@ -204,32 +204,32 @@ if (!get_config('block_behaviour', 'allowshownames')) {
 }
 // Combine all data and send to client program.
 $out = array(
-    'logs'           => [],
-    'users'          => [ array('id' => 0) ],
-    'mods'           => [],
-    'panelwidth'     => $panelwidth,
-    'legendwidth'    => $legendwidth,
-    'name'           => get_string('clusterreplay', 'block_behaviour'),
-    'nodecoords'     => [],
-    'links'          => [],
-    'userid'         => $USER->id,
-    'courseid'       => $course->id,
-    'replaying'      => true,
-    'replaydata'     => $replay,
-    'manualdata'     => $manual,
-    'gotallnodes'    => true,
-    'isresearcher'   => $isresearcher,
+    'logs' => [],
+    'users' => [ array('id' => 0) ],
+    'mods' => [],
+    'panelwidth' => $panelwidth,
+    'legendwidth' => $legendwidth,
+    'name' => get_string('clusterreplay', 'block_behaviour'),
+    'nodecoords' => [],
+    'links' => [],
+    'userid' => $USER->id,
+    'courseid' => $course->id,
+    'replaying' => true,
+    'replaydata' => $replay,
+    'manualdata' => $manual,
+    'gotallnodes' => true,
+    'isresearcher' => $isresearcher,
     'debugcentroids' => $debugcentroids,
-    'strings'        => block_behaviour_get_lang_strings(),
-    'sesskey'        => sesskey(),
-    'version36'      => $version36,
-    'version40'      => $version40,
-    'iframeurl'      => (string) new moodle_url('/'),
-    'coordsscript'   => (string) new moodle_url('/blocks/behaviour/update-coords.php'),
+    'strings' => block_behaviour_get_lang_strings(),
+    'sesskey' => sesskey(),
+    'version36' => $version36,
+    'version40' => $version40,
+    'iframeurl' => (string) new moodle_url('/'),
+    'coordsscript' => (string) new moodle_url('/blocks/behaviour/update-coords.php'),
     'clustersscript' => (string) new moodle_url('/blocks/behaviour/update-clusters.php'),
     'commentsscript' => (string) new moodle_url('/blocks/behaviour/update-comments.php'),
-    'manualscript'   => (string) new moodle_url('/blocks/behaviour/update-manual-clusters.php'),
-    'deletescript'   => (string) new moodle_url('/blocks/behaviour/delete-cluster-data.php'),
+    'manualscript' => (string) new moodle_url('/blocks/behaviour/update-manual-clusters.php'),
+    'deletescript' => (string) new moodle_url('/blocks/behaviour/delete-cluster-data.php'),
     'predictionscript' => (string) new moodle_url('/blocks/behaviour/update-prediction.php'),
     'showstudentnames' => $shownames,
     'predictionanalysis' => $installed->prediction,

@@ -41,7 +41,7 @@ class behaviour_exported extends \core\event\base {
      * @return void
      */
     protected function init() {
-        $this->data['crud']     = 'r';
+        $this->data['crud'] = 'r';
         $this->data['edulevel'] = self::LEVEL_OTHER;
     }
 

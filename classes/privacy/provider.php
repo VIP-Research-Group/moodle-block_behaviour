@@ -58,8 +58,8 @@ class provider implements
             [
                 'courseid' => 'privacy:metadata:block_behaviour:courseid',
                 'moduleid' => 'privacy:metadata:block_behaviour:moduleid',
-                'userid'   => 'privacy:metadata:block_behaviour:userid',
-                'time'     => 'privacy:metadata:block_behaviour:time',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'time' => 'privacy:metadata:block_behaviour:time',
             ],
             'privacy:metadata:block_behaviour_imported'
         );
@@ -67,13 +67,13 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_centroids',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'userid'    => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'  => 'privacy:metadata:block_behaviour:coordsid',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
                 'studentid' => 'privacy:metadata:block_behaviour:studentid',
-                'totalx'    => 'privacy:metadata:block_behaviour:totalx',
-                'totaly'    => 'privacy:metadata:block_behaviour:totaly',
-                'numnodes'  => 'privacy:metadata:block_behaviour:numnodes',
+                'totalx' => 'privacy:metadata:block_behaviour:totalx',
+                'totaly' => 'privacy:metadata:block_behaviour:totaly',
+                'numnodes' => 'privacy:metadata:block_behaviour:numnodes',
                 'centroidx' => 'privacy:metadata:block_behaviour:centroidx',
                 'centroidy' => 'privacy:metadata:block_behaviour:centroidy',
             ],
@@ -84,12 +84,12 @@ class provider implements
             'block_behaviour_coords',
             [
                 'courseid' => 'privacy:metadata:block_behaviour:courseid',
-                'userid'   => 'privacy:metadata:block_behaviour:userid',
-                'changed'  => 'privacy:metadata:block_behaviour:changed',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'changed' => 'privacy:metadata:block_behaviour:changed',
                 'moduleid' => 'privacy:metadata:block_behaviour:moduleid',
-                'xcoord'   => 'privacy:metadata:block_behaviour:xcoord',
-                'ycoord'   => 'privacy:metadata:block_behaviour:ycoord',
-                'visible'  => 'privacy:metadata:block_behaviour:visible',
+                'xcoord' => 'privacy:metadata:block_behaviour:xcoord',
+                'ycoord' => 'privacy:metadata:block_behaviour:ycoord',
+                'visible' => 'privacy:metadata:block_behaviour:visible',
             ],
             'privacy:metadata:block_behaviour_coords'
         );
@@ -97,14 +97,14 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_clusters',
             [
-                'courseid'     => 'privacy:metadata:block_behaviour:courseid',
-                'userid'       => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'     => 'privacy:metadata:block_behaviour:coordsid',
-                'clusterid'    => 'privacy:metadata:block_behaviour:clusterid',
-                'iteration'    => 'privacy:metadata:block_behaviour:iteration',
-                'clusternum'   => 'privacy:metadata:block_behaviour:clusternum',
-                'centroidx'    => 'privacy:metadata:block_behaviour:centroidx',
-                'centroidy'    => 'privacy:metadata:block_behaviour:centroidy',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
+                'clusterid' => 'privacy:metadata:block_behaviour:clusterid',
+                'iteration' => 'privacy:metadata:block_behaviour:iteration',
+                'clusternum' => 'privacy:metadata:block_behaviour:clusternum',
+                'centroidx' => 'privacy:metadata:block_behaviour:centroidx',
+                'centroidy' => 'privacy:metadata:block_behaviour:centroidy',
                 'usegeometric' => 'privacy:metadata:block_behaviour:usegeometric',
             ],
             'privacy:metadata:block_behaviour_clusters'
@@ -113,15 +113,15 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_members',
             [
-                'courseid'   => 'privacy:metadata:block_behaviour:courseid',
-                'userid'     => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'   => 'privacy:metadata:block_behaviour:coordsid',
-                'clusterid'  => 'privacy:metadata:block_behaviour:clusterid',
-                'iteration'  => 'privacy:metadata:block_behaviour:iteration',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
+                'clusterid' => 'privacy:metadata:block_behaviour:clusterid',
+                'iteration' => 'privacy:metadata:block_behaviour:iteration',
                 'clusternum' => 'privacy:metadata:block_behaviour:clusternum',
-                'studentid'  => 'privacy:metadata:block_behaviour:studentid',
-                'centroidx'  => 'privacy:metadata:block_behaviour:centroidx',
-                'centroidy'  => 'privacy:metadata:block_behaviour:centroidy',
+                'studentid' => 'privacy:metadata:block_behaviour:studentid',
+                'centroidx' => 'privacy:metadata:block_behaviour:centroidx',
+                'centroidy' => 'privacy:metadata:block_behaviour:centroidy',
             ],
             'privacy:metadata:block_behaviour_members'
         );
@@ -130,9 +130,9 @@ class provider implements
             'block_behaviour_scales',
             [
                 'courseid' => 'privacy:metadata:block_behaviour:courseid',
-                'userid'   => 'privacy:metadata:block_behaviour:userid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
                 'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
-                'scale'    => 'privacy:metadata:block_behaviour:scale',
+                'scale' => 'privacy:metadata:block_behaviour:scale',
             ],
             'privacy:metadata:block_behaviour_scales'
         );
@@ -140,13 +140,13 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_comments',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'userid'    => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'  => 'privacy:metadata:block_behaviour:coordsid',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
                 'clusterid' => 'privacy:metadata:block_behaviour:clusterid',
                 'studentid' => 'privacy:metadata:block_behaviour:studentid',
                 'commentid' => 'privacy:metadata:block_behaviour:commentid',
-                'remark'    => 'privacy:metadata:block_behaviour:remark',
+                'remark' => 'privacy:metadata:block_behaviour:remark',
             ],
             'privacy:metadata:block_behaviour_comments'
         );
@@ -154,14 +154,14 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_man_clusters',
             [
-                'courseid'   => 'privacy:metadata:block_behaviour:courseid',
-                'userid'     => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'   => 'privacy:metadata:block_behaviour:coordsid',
-                'clusterid'  => 'privacy:metadata:block_behaviour:clusterid',
-                'iteration'  => 'privacy:metadata:block_behaviour:iteration',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
+                'clusterid' => 'privacy:metadata:block_behaviour:clusterid',
+                'iteration' => 'privacy:metadata:block_behaviour:iteration',
                 'clusternum' => 'privacy:metadata:block_behaviour:clusternum',
-                'centroidx'  => 'privacy:metadata:block_behaviour:centroidx',
-                'centroidy'  => 'privacy:metadata:block_behaviour:centroidy',
+                'centroidx' => 'privacy:metadata:block_behaviour:centroidx',
+                'centroidy' => 'privacy:metadata:block_behaviour:centroidy',
             ],
             'privacy:metadata:block_behaviour_man_clusters'
         );
@@ -169,13 +169,13 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_man_members',
             [
-                'courseid'   => 'privacy:metadata:block_behaviour:courseid',
-                'userid'     => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'   => 'privacy:metadata:block_behaviour:coordsid',
-                'clusterid'  => 'privacy:metadata:block_behaviour:clusterid',
-                'iteration'  => 'privacy:metadata:block_behaviour:iteration',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
+                'clusterid' => 'privacy:metadata:block_behaviour:clusterid',
+                'iteration' => 'privacy:metadata:block_behaviour:iteration',
                 'clusternum' => 'privacy:metadata:block_behaviour:clusternum',
-                'studentid'  => 'privacy:metadata:block_behaviour:studentid',
+                'studentid' => 'privacy:metadata:block_behaviour:studentid',
             ],
             'privacy:metadata:block_behaviour_man_members'
         );
@@ -183,9 +183,9 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_centres',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'userid'    => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'  => 'privacy:metadata:block_behaviour:coordsid',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
                 'studentid' => 'privacy:metadata:block_behaviour:studentid',
                 'centroidx' => 'privacy:metadata:block_behaviour:centroidx',
                 'centroidy' => 'privacy:metadata:block_behaviour:centroidy',
@@ -196,9 +196,9 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_studyids',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'userid'    => 'privacy:metadata:block_behaviour:userid',
-                'studyid'   => 'privacy:metadata:block_behaviour:studyid'
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'studyid' => 'privacy:metadata:block_behaviour:studyid'
             ],
             'privacy:metadata:block_behaviour_studyids'
         );
@@ -206,9 +206,9 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_lord_options',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'userid'    => 'privacy:metadata:block_behaviour:userid',
-                'uselord'   => 'privacy:metadata:block_behaviour:uselord',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'uselord' => 'privacy:metadata:block_behaviour:uselord',
                 'usecustom' => 'privacy:metadata:block_behaviour:usecustom',
             ],
             'privacy:metadata:block_behaviour_lord_options'
@@ -217,7 +217,7 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_surveys',
             [
-                'title'  => 'privacy:metadata:block_behaviour:title',
+                'title' => 'privacy:metadata:block_behaviour:title',
             ],
             'privacy:metadata:block_behaviour_surveys'
         );
@@ -225,10 +225,10 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_surveys_qs',
             [
-                'survey'  => 'privacy:metadata:block_behaviour:survey',
-                'qtype'  => 'privacy:metadata:block_behaviour:qtype',
-                'qtext'  => 'privacy:metadata:block_behaviour:qtext',
-                'ordering'  => 'privacy:metadata:block_behaviour:ordering',
+                'survey' => 'privacy:metadata:block_behaviour:survey',
+                'qtype' => 'privacy:metadata:block_behaviour:qtype',
+                'qtext' => 'privacy:metadata:block_behaviour:qtext',
+                'ordering' => 'privacy:metadata:block_behaviour:ordering',
             ],
             'privacy:metadata:block_behaviour_survey_qs'
         );
@@ -236,9 +236,9 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_surveys_opts',
             [
-                'question'  => 'privacy:metadata:block_behaviour:question',
-                'ordering'  => 'privacy:metadata:block_behaviour:ordering',
-                'text'  => 'privacy:metadata:block_behaviour:text',
+                'question' => 'privacy:metadata:block_behaviour:question',
+                'ordering' => 'privacy:metadata:block_behaviour:ordering',
+                'text' => 'privacy:metadata:block_behaviour:text',
             ],
             'privacy:metadata:block_behaviour_survey_opts'
         );
@@ -246,13 +246,13 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_surveys_rsps',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'studentid'  => 'privacy:metadata:block_behaviour:studentid',
-                'surveyid'  => 'privacy:metadata:block_behaviour:survey',
-                'attempt'  => 'privacy:metadata:block_behaviour:attempt',
-                'questionid'  => 'privacy:metadata:block_behaviour:question',
-                'qorder'  => 'privacy:metadata:block_behaviour:ordering',
-                'response'  => 'privacy:metadata:block_behaviour:response',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'studentid' => 'privacy:metadata:block_behaviour:studentid',
+                'surveyid' => 'privacy:metadata:block_behaviour:survey',
+                'attempt' => 'privacy:metadata:block_behaviour:attempt',
+                'questionid' => 'privacy:metadata:block_behaviour:question',
+                'qorder' => 'privacy:metadata:block_behaviour:ordering',
+                'response' => 'privacy:metadata:block_behaviour:response',
             ],
             'privacy:metadata:block_behaviour_survey_rsps'
         );
@@ -260,14 +260,14 @@ class provider implements
         $collection->add_database_table(
             'block_behaviour_common_links',
             [
-                'courseid'  => 'privacy:metadata:block_behaviour:courseid',
-                'userid'  => 'privacy:metadata:block_behaviour:userid',
-                'coordsid'  => 'privacy:metadata:block_behaviour:coordsid',
-                'cluster'  => 'privacy:metadata:block_behaviour:clusterid',
-                'iteration'  => 'privacy:metadata:block_behaviour:iteration',
-                'clusternum'  => 'privacy:metadata:block_behaviour:clusternum',
-                'link'  => 'privacy:metadata:block_behaviour:link',
-                'weight'  => 'privacy:metadata:block_behaviour:weight',
+                'courseid' => 'privacy:metadata:block_behaviour:courseid',
+                'userid' => 'privacy:metadata:block_behaviour:userid',
+                'coordsid' => 'privacy:metadata:block_behaviour:coordsid',
+                'cluster' => 'privacy:metadata:block_behaviour:clusterid',
+                'iteration' => 'privacy:metadata:block_behaviour:iteration',
+                'clusternum' => 'privacy:metadata:block_behaviour:clusternum',
+                'link' => 'privacy:metadata:block_behaviour:link',
+                'weight' => 'privacy:metadata:block_behaviour:weight',
             ],
             'privacy:metadata:block_behaviour_common_links'
         );
@@ -294,7 +294,7 @@ class provider implements
 
         $params = [
             'context' => CONTEXT_COURSE,
-            'userid'  => $userid
+            'userid' => $userid
         ];
 
         $contextlist->add_from_sql($sql, $params);

@@ -117,7 +117,7 @@ class increment_logs_schedule extends \core\task\scheduled_task {
         if ($updatesynctime) {
             // Update last sync time.
             $DB->update_record('block_behaviour_installed', (object) array(
-                'id'       => $course->id,
+                'id' => $course->id,
                 'courseid' => $course->courseid,
                 'lastsync' => $now
             ));
@@ -183,9 +183,9 @@ class increment_logs_schedule extends \core\task\scheduled_task {
               ORDER BY userid, timecreated";
 
         $params = array(
-            'courseid'      => $course->courseid,
+            'courseid' => $course->courseid,
             'contextmodule' => CONTEXT_MODULE,
-            'lastsync'      => $course->lastsync
+            'lastsync' => $course->lastsync
         );
         $params = array_merge($params, $inparams);
 
@@ -337,8 +337,8 @@ class increment_logs_schedule extends \core\task\scheduled_task {
             $data[] = (object) array(
                 "courseid" => $course->courseid,
                 "moduleid" => $log->contextinstanceid,
-                "userid"   => $log->userid,
-                "time"     => $log->timecreated
+                "userid" => $log->userid,
+                "time" => $log->timecreated
             );
 
             $student = $log->userid;
@@ -403,9 +403,9 @@ class increment_logs_schedule extends \core\task\scheduled_task {
                     self::dbug('Centroid ' . $teacher . ' ' . $coordid . ' ' . $student);
 
                     $params = array(
-                        'courseid'  => $course->courseid,
-                        'userid'    => $teacher,
-                        'coordsid'  => $coordid,
+                        'courseid' => $course->courseid,
+                        'userid' => $teacher,
+                        'coordsid' => $coordid,
                         'studentid' => $student
                     );
 
@@ -414,17 +414,17 @@ class increment_logs_schedule extends \core\task\scheduled_task {
                         $x = $coord['x'] + $result->totalx;
                         $y = $coord['y'] + $result->totaly;
                         $n = $coord['n'] + $result->numnodes;
-                        $params['id']        = $result->id;
-                        $params['totalx']    = $x;
-                        $params['totaly']    = $y;
-                        $params['numnodes']  = $n;
+                        $params['id'] = $result->id;
+                        $params['totalx'] = $x;
+                        $params['totaly'] = $y;
+                        $params['numnodes'] = $n;
                         $params['centroidx'] = $x / $n;
                         $params['centroidy'] = $y / $n;
                         $DB->update_record('block_behaviour_centroids', $params);
                     } else {
-                        $params['totalx']    = $coord['x'];
-                        $params['totaly']    = $coord['y'];
-                        $params['numnodes']  = $coord['n'];
+                        $params['totalx'] = $coord['x'];
+                        $params['totaly'] = $coord['y'];
+                        $params['numnodes'] = $coord['n'];
                         $params['centroidx'] = $coord['x'] / $coord['n'];
                         $params['centroidy'] = $coord['y'] / $coord['n'];
                         $DB->insert_record('block_behaviour_centroids', $params);
@@ -503,9 +503,9 @@ class increment_logs_schedule extends \core\task\scheduled_task {
         }
 
         $params = array(
-            'courseid'  => $course->courseid,
-            'userid'    => $teacher,
-            'coordsid'  => $coordid,
+            'courseid' => $course->courseid,
+            'userid' => $teacher,
+            'coordsid' => $coordid,
             'studentid' => $studentid
         );
 
@@ -560,8 +560,8 @@ class increment_logs_schedule extends \core\task\scheduled_task {
 
         // Get the different graph configurations for this course and user.
         $params = array(
-            'courseid'  => $courseid,
-            'userid'    => $teacher,
+            'courseid' => $courseid,
+            'userid' => $teacher,
             'iteration' => -1
         );
         $coordids = $DB->get_records('block_behaviour_clusters', $params, '', 'distinct coordsid');
@@ -778,15 +778,15 @@ class increment_logs_schedule extends \core\task\scheduled_task {
 
                 // Data for members table.
                 $memberdata[] = (object) array(
-                    'courseid'   => $params['courseid'],
-                    'userid'     => $params['userid'],
-                    'coordsid'   => $params['coordsid'],
-                    'clusterid'  => $clusterid,
-                    'iteration'  => $iteration - 1,
+                    'courseid' => $params['courseid'],
+                    'userid' => $params['userid'],
+                    'coordsid' => $params['coordsid'],
+                    'clusterid' => $clusterid,
+                    'iteration' => $iteration - 1,
                     'clusternum' => $clusternum,
-                    'studentid'  => $member->studentid,
-                    'centroidx'  => $member->centroidx,
-                    'centroidy'  => $member->centroidy
+                    'studentid' => $member->studentid,
+                    'centroidx' => $member->centroidx,
+                    'centroidy' => $member->centroidy
                 );
             }
 
@@ -835,14 +835,14 @@ class increment_logs_schedule extends \core\task\scheduled_task {
 
             // Data for clusters table.
             $clusterdata[] = (object) array(
-                'courseid'     => $params['courseid'],
-                'userid'       => $params['userid'],
-                'coordsid'     => $params['coordsid'],
-                'clusterid'    => $clusterid,
-                'iteration'    => $iteration - 1,
-                'clusternum'   => $clusternum,
-                'centroidx'    => $x,
-                'centroidy'    => $y,
+                'courseid' => $params['courseid'],
+                'userid' => $params['userid'],
+                'coordsid' => $params['coordsid'],
+                'clusterid' => $clusterid,
+                'iteration' => $iteration - 1,
+                'clusternum' => $clusternum,
+                'centroidx' => $x,
+                'centroidy' => $y,
                 'usegeometric' => $usegeo
             );
         }

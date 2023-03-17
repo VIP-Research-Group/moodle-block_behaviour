@@ -76,30 +76,30 @@ if ($gotallnodes) {
 
 // If doing resource node configuration.
 $out = array(
-    'logs'        => [],
-    'users'       => [ array('id' => 0) ],
-    'mods'        => $mods,
-    'panelwidth'  => $panelwidth,
+    'logs' => [],
+    'users' => [ array('id' => 0) ],
+    'mods' => $mods,
+    'panelwidth' => $panelwidth,
     'legendwidth' => $legendwidth,
-    'name'        => $course->shortname,
+    'name' => $course->shortname,
     'positioning' => true,
-    'nodecoords'  => $nodes,
-    'links'       => $links,
-    'userid'      => $USER->id,
-    'courseid'    => $course->id,
-    'scale'       => $scale,
-    'lastchange'  => $coordsid,
+    'nodecoords' => $nodes,
+    'links' => $links,
+    'userid' => $USER->id,
+    'courseid' => $course->id,
+    'scale' => $scale,
+    'lastchange' => $coordsid,
     'gotallnodes' => $gotallnodes,
-    'strings'     => block_behaviour_get_lang_strings(),
-    'sesskey'     => sesskey(),
-    'version36'   => $version36,
-    'version40'   => $version40,
-    'uselsa'      => $uselsa,
-    'coordsscript'   => (string) new moodle_url('/blocks/behaviour/update-coords.php'),
+    'strings' => block_behaviour_get_lang_strings(),
+    'sesskey' => sesskey(),
+    'version36' => $version36,
+    'version40' => $version40,
+    'uselsa' => $uselsa,
+    'coordsscript' => (string) new moodle_url('/blocks/behaviour/update-coords.php'),
     'clustersscript' => (string) new moodle_url('/blocks/behaviour/update-clusters.php'),
     'commentsscript' => (string) new moodle_url('/blocks/behaviour/update-comments.php'),
-    'manualscript'   => (string) new moodle_url('/blocks/behaviour/update-manual-clusters.php'),
-    'iframeurl'      => (string) new moodle_url('/'),
+    'manualscript' => (string) new moodle_url('/blocks/behaviour/update-manual-clusters.php'),
+    'iframeurl' => (string) new moodle_url('/'),
 );
 
 // If user is researcher, get all graph configurations for this course.
@@ -120,7 +120,7 @@ if (get_config('block_behaviour', 'c_'.$course->id.'_p_'.$USER->id)) {
         // Get the graph data for this user.
         if ($USER->id == $user->userid) { // Data is same as global.
 
-            $scales[$user->userid]  = $scale;
+            $scales[$user->userid] = $scale;
             $changes[$user->userid] = $coordsid;
             $graphs[$user->userid] = $nodes;
             $edges[$user->userid] = $links;
@@ -130,7 +130,7 @@ if (get_config('block_behaviour', 'c_'.$course->id.'_p_'.$USER->id)) {
             list($cid, $scl, $nds, $numnds, $lnks, $uselsa) =
                 block_behaviour_get_graph_data(0, $user->userid, $course, $mods, $modids);
 
-            $scales[$user->userid]  = $scl;
+            $scales[$user->userid] = $scl;
             $changes[$user->userid] = $cid;
             $graphs[$user->userid] = $nds;
             $edges[$user->userid] = $lnks;
@@ -146,7 +146,7 @@ if (get_config('block_behaviour', 'c_'.$course->id.'_p_'.$USER->id)) {
 
     if (!isset($scales[$USER->id])) {
         // No graph configurations yet for this user.
-        $scales[$USER->id]  = 1.0;
+        $scales[$USER->id] = 1.0;
         $changes[$USER->id] = 0;
         $modules[$USER->id] = $mods;
         $names[$USER->id] = $DB->get_field('user', 'username', array('id' => $USER->id));
@@ -154,12 +154,12 @@ if (get_config('block_behaviour', 'c_'.$course->id.'_p_'.$USER->id)) {
     }
 
     // Add to outgoing data.
-    $out['graphs']   = $graphs;
+    $out['graphs'] = $graphs;
     $out['alllinks'] = $edges;
-    $out['scales']   = $scales;
-    $out['changes']  = $changes;
-    $out['names']    = $names;
-    $out['allmods']  = $modules;
+    $out['scales'] = $scales;
+    $out['changes'] = $changes;
+    $out['names'] = $names;
+    $out['allmods'] = $modules;
     $out['setnames'] = $setnames;
 }
 

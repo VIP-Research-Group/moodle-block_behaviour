@@ -47,13 +47,13 @@ if (!block_behaviour_is_installed($course->id)) {
     die();
 }
 
-$result = $DB->get_record('block_behaviour_installed', array('courseid'  => $courseid));
+$result = $DB->get_record('block_behaviour_installed', array('courseid' => $courseid));
 
 // Remove last import result.
 $DB->update_record('block_behaviour_installed', (object) array(
-    'id'           => $result->id,
-    'courseid'     => $result->courseid,
-    'lastsync'     => $result->lastsync,
+    'id' => $result->id,
+    'courseid' => $result->courseid,
+    'lastsync' => $result->lastsync,
     'importresult' => ''
 ));
 

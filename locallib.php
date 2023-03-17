@@ -86,11 +86,11 @@ function block_behaviour_get_course_info(&$course) {
             }
 
             $courseinfo[] = array(
-                'id'     => $cmid,
+                'id' => $cmid,
                 'entype' => $cm->modname,
-                'type'   => get_string('modulename', $cm->modname),
-                'name'   => $cm->name,
-                'sect'   => $sectionnum
+                'type' => get_string('modulename', $cm->modname),
+                'name' => $cm->name,
+                'sect' => $sectionnum
             );
             $modids[$cmid] = $cmid;
         }
@@ -163,8 +163,8 @@ function block_behaviour_get_nodes($coordsid, &$table, $params) {
 
         if ($row->xcoord != 0 && $row->ycoord != 0) {
             $nodes[$row->moduleid] = array(
-                'xcoord'  => $row->xcoord,
-                'ycoord'  => $row->ycoord,
+                'xcoord' => $row->xcoord,
+                'ycoord' => $row->ycoord,
                 'visible' => intval($row->visible),
             );
         }
@@ -191,7 +191,7 @@ function block_behaviour_get_scale_and_node_data($coordsid, $userid, &$course) {
 
     $params = array(
         'courseid' => $course->id,
-        'userid'   => $userid
+        'userid' => $userid
     );
 
     $table = 'block_behaviour_scales';
@@ -431,7 +431,7 @@ function block_behaviour_get_log_data(&$nodes, &$course, &$globallogs) {
             $users[$row->userid] = $indx;
             $logs[] = array(
                 'moduleId' => $row->moduleid,
-                'userId'   => $indx
+                'userId' => $indx
             );
         }
     }
@@ -546,9 +546,9 @@ function block_behaviour_get_comment_data($coordsid, $clusterid, $userid, &$cour
     }
 
     $cmnts = $DB->get_records('block_behaviour_comments', array(
-        'courseid'  => $course->id,
-        'userid'    => $userid,
-        'coordsid'  => $coordsid,
+        'courseid' => $course->id,
+        'userid' => $userid,
+        'coordsid' => $coordsid,
         'clusterid' => $clusterid
     ), 'commentid');
 
@@ -583,10 +583,10 @@ function block_behaviour_get_members($coordsid, $clusterid, $table, $userid, &$c
 
     // Get membership records.
     $members = $DB->get_records($table, array(
-        'courseid'   => $course->id,
-        'userid'     => $userid,
-        'coordsid'   => $coordsid,
-        'clusterid'  => $clusterid
+        'courseid' => $course->id,
+        'userid' => $userid,
+        'coordsid' => $coordsid,
+        'clusterid' => $clusterid
     ), 'iteration, clusternum');
 
     // Build members array for this clusterid.
@@ -604,12 +604,12 @@ function block_behaviour_get_members($coordsid, $clusterid, $table, $userid, &$c
         if (isset($member->centroidy)) {
             $data[$member->iteration][$member->clusternum][] = array(
                 'id' => $member->studentid,
-                'x'  => $member->centroidx,
-                'y'  => $member->centroidy
+                'x' => $member->centroidx,
+                'y' => $member->centroidy
             );
         } else {
             $data[$member->iteration][$member->clusternum][] = array(
-                'id'  => $member->studentid,
+                'id' => $member->studentid,
                 'num' => $member->clusternum
             );
         }
@@ -648,7 +648,7 @@ function block_behaviour_check_got_all_mods(&$mods, &$nodes, &$modids) {
     foreach ($keys as $mid) {
         if (!isset($modids[$mid]) && is_numeric($mid)) {
             $mods[] = array(
-                'id'   => $mid,
+                'id' => $mid,
                 'type' => 'unknown',
                 'entype' => 'unknown',
                 'name' => 'unknown'.$mid,
@@ -670,7 +670,7 @@ function block_behaviour_get_centroids(&$courseid, &$coordsid) {
 
     $cents = $DB->get_records('block_behaviour_centroids', array(
         'courseid' => $courseid,
-        'userid'   => $USER->id,
+        'userid' => $USER->id,
         'coordsid' => $coordsid
     ));
 
@@ -705,13 +705,13 @@ function block_behaviour_update_student_centroid($courseid, $userid, $studentid,
 
     // New DB table values.
     $params = array(
-        'courseid'  => $courseid,
-        'userid'    => $userid,
+        'courseid' => $courseid,
+        'userid' => $userid,
         'studentid' => $studentid,
-        'coordsid'  => $coordsid,
-        'totalx'    => $x,
-        'totaly'    => $y,
-        'numnodes'  => $n,
+        'coordsid' => $coordsid,
+        'totalx' => $x,
+        'totaly' => $y,
+        'numnodes' => $n,
         'centroidx' => $x / $n,
         'centroidy' => $y / $n
     );
@@ -780,9 +780,9 @@ function block_behaviour_update_centroids_and_centres($courseid, $userid, $coord
         $centre = $data[intval(count($data) / 2)];
 
         $records[] = (object) array(
-            'courseid'  => $courseid,
-            'userid'    => $userid,
-            'coordsid'  => $coordsid,
+            'courseid' => $courseid,
+            'userid' => $userid,
+            'coordsid' => $coordsid,
             'studentid' => $studentid,
             'centroidx' => $nodes[$centre]['xcoord'],
             'centroidy' => $nodes[$centre]['ycoord']
@@ -898,40 +898,40 @@ function block_behaviour_get_participants($courseid, $roleid) {
 function block_behaviour_get_lang_strings() {
 
     return array(
-        'cluster'       => get_string('cluster', 'block_behaviour'),
-        'graph'         => get_string('graph', 'block_behaviour'),
-        'numclusters'   => get_string('numclusters', 'block_behaviour'),
+        'cluster' => get_string('cluster', 'block_behaviour'),
+        'graph' => get_string('graph', 'block_behaviour'),
+        'numclusters' => get_string('numclusters', 'block_behaviour'),
         'randcentroids' => get_string('randcentroids', 'block_behaviour'),
-        'convergence'   => get_string('convergence', 'block_behaviour'),
-        'runkmeans'     => get_string('runkmeans', 'block_behaviour'),
+        'convergence' => get_string('convergence', 'block_behaviour'),
+        'runkmeans' => get_string('runkmeans', 'block_behaviour'),
         'showcentroids' => get_string('showcentroids', 'block_behaviour'),
-        'removegraph'   => get_string('removegraph', 'block_behaviour'),
-        'iteration'     => get_string('iteration', 'block_behaviour'),
-        'section'       => get_string('section', 'block_behaviour'),
-        'hide'          => get_string('hide', 'block_behaviour'),
-        'copy'          => get_string('copy', 'block_behaviour'),
-        'print'         => get_string('print', 'block_behaviour'),
-        'reset'         => get_string('reset', 'block_behaviour'),
-        'numstudents'   => get_string('numstudents', 'block_behaviour'),
+        'removegraph' => get_string('removegraph', 'block_behaviour'),
+        'iteration' => get_string('iteration', 'block_behaviour'),
+        'section' => get_string('section', 'block_behaviour'),
+        'hide' => get_string('hide', 'block_behaviour'),
+        'copy' => get_string('copy', 'block_behaviour'),
+        'print' => get_string('print', 'block_behaviour'),
+        'reset' => get_string('reset', 'block_behaviour'),
+        'numstudents' => get_string('numstudents', 'block_behaviour'),
         'numofclusters' => get_string('numofclusters', 'block_behaviour'),
         'disttocluster' => get_string('disttocluster', 'block_behaviour'),
-        'members'       => get_string('members', 'block_behaviour'),
-        'save'          => get_string('save', 'block_behaviour'),
-        'linksweight'   => get_string('linksweight', 'block_behaviour'),
+        'members' => get_string('members', 'block_behaviour'),
+        'save' => get_string('save', 'block_behaviour'),
+        'linksweight' => get_string('linksweight', 'block_behaviour'),
         'totalmeasures' => get_string('totalmeasures', 'block_behaviour'),
         'manualcluster' => get_string('manualcluster', 'block_behaviour'),
-        'precision'     => get_string('precision', 'block_behaviour'),
-        'recall'        => get_string('recall', 'block_behaviour'),
-        'f1'            => get_string('f1', 'block_behaviour'),
-        'fhalf'         => get_string('fhalf', 'block_behaviour'),
-        'f2'            => get_string('f2', 'block_behaviour'),
-        'close'         => get_string('close', 'block_behaviour'),
-        'geometrics'    => get_string('geometrics', 'block_behaviour'),
-        'decomposed'    => get_string('decomposed', 'block_behaviour'),
-        'dragon'        => get_string('dragon', 'block_behaviour'),
-        'dragoff'       => get_string('dragoff', 'block_behaviour'),
-        'delbutton'     => get_string('delbutton', 'block_behaviour'),
-        'delconfirm'    => get_string('delconfirm', 'block_behaviour'),
+        'precision' => get_string('precision', 'block_behaviour'),
+        'recall' => get_string('recall', 'block_behaviour'),
+        'f1' => get_string('f1', 'block_behaviour'),
+        'fhalf' => get_string('fhalf', 'block_behaviour'),
+        'f2' => get_string('f2', 'block_behaviour'),
+        'close' => get_string('close', 'block_behaviour'),
+        'geometrics' => get_string('geometrics', 'block_behaviour'),
+        'decomposed' => get_string('decomposed', 'block_behaviour'),
+        'dragon' => get_string('dragon', 'block_behaviour'),
+        'dragoff' => get_string('dragoff', 'block_behaviour'),
+        'delbutton' => get_string('delbutton', 'block_behaviour'),
+        'delconfirm' => get_string('delconfirm', 'block_behaviour'),
         'clusteringname' => get_string('clusteringname', 'block_behaviour'),
         'clusteringnamebutton' => get_string('clusteringnamebutton', 'block_behaviour'),
         'system' => get_string('system', 'block_behaviour'),
@@ -3198,7 +3198,7 @@ class block_behaviour_exporter {
 
         // Paramaters for DB query.
         $params = array(
-            'courseid'      => $courseid,
+            'courseid' => $courseid,
             'contextmodule' => CONTEXT_MODULE
         );
 
@@ -3244,7 +3244,7 @@ class block_behaviour_exporter {
 
         // Paramaters for DB query.
         $params = array(
-            'courseid'      => $courseid,
+            'courseid' => $courseid,
             'contextmodule' => CONTEXT_MODULE
         );
 
@@ -3318,8 +3318,8 @@ class block_behaviour_exporter {
                 $loginfo[] = array(
                     'modType' => 'unkown',
                     'modName' => $value->contextinstanceid,
-                    'userId'  => $value->userid,
-                    'time'    => $value->timecreated
+                    'userId' => $value->userid,
+                    'time' => $value->timecreated
                 );
             } else {
                 $module = $courseinfo[$value->contextinstanceid];
@@ -3327,8 +3327,8 @@ class block_behaviour_exporter {
                 $loginfo[] = array(
                     'modType' => $module['type'],
                     'modName' => $module['name'],
-                    'userId'  => $value->userid,
-                    'time'    => $value->timecreated
+                    'userId' => $value->userid,
+                    'time' => $value->timecreated
                 );
             }
         }
@@ -3495,8 +3495,8 @@ class block_behaviour_import_form extends moodleform {
             if (isset($courseinfo[$type.'_'.$imp->modName])) {
                 $logs[] = (object) array(
                     'contextinstanceid' => $courseinfo[$type.'_'.$imp->modName],
-                    'userid'            => $imp->userId,
-                    'timecreated'       => $imp->time
+                    'userid' => $imp->userId,
+                    'timecreated' => $imp->time
                 );
             }
         }
@@ -3561,8 +3561,8 @@ class block_behaviour_import_form extends moodleform {
                 if ($moduleid) {
                     $logs[] = (object) array(
                         'contextinstanceid' => $moduleid,
-                        'userid'            => $userid,
-                        'timecreated'       => $time
+                        'userid' => $userid,
+                        'timecreated' => $time
                     );
                 }
             }
@@ -3714,7 +3714,7 @@ class block_behaviour_complete_exporter {
         if ($DB->record_exists('block', ['name' => 'lord'])) {
             $data['lordcoords'] = $this->block_behaviour_get_lord_coords($course->id, $modules);
             $data['lordscales'] = $this->block_behaviour_get_lord_scales($course->id);
-            $data['lordlinks']  = $this->block_behaviour_get_lord_links($course->id, $modules);
+            $data['lordlinks'] = $this->block_behaviour_get_lord_links($course->id, $modules);
         }
 
         return $data;
@@ -3753,13 +3753,13 @@ class block_behaviour_complete_exporter {
 
             $links[] = array(
                 'coordsid' => $r->coordsid,
-                'type1'    => $module1['type'],
-                'name1'    => $module1['name'],
-                'sect1'    => $module1['sect'],
-                'type2'    => $module2['type'],
-                'name2'    => $module2['name'],
-                'sect2'    => $module2['sect'],
-                'weight'   => $r->weight
+                'type1' => $module1['type'],
+                'name1' => $module1['name'],
+                'sect1' => $module1['sect'],
+                'type2' => $module2['type'],
+                'name2' => $module2['name'],
+                'sect2' => $module2['sect'],
+                'weight' => $r->weight
             );
         }
 
@@ -3783,11 +3783,11 @@ class block_behaviour_complete_exporter {
         foreach ($records as $r) {
 
             $scales[] = array(
-                'coordsid'  => $r->coordsid,
-                'scale'     => $r->scale,
-                'iscustom'  => $r->iscustom,
-                'mindist'   => $r->mindist,
-                'maxdist'   => $r->maxdist,
+                'coordsid' => $r->coordsid,
+                'scale' => $r->scale,
+                'iscustom' => $r->iscustom,
+                'mindist' => $r->mindist,
+                'maxdist' => $r->maxdist,
                 'distscale' => $r->distscale
             );
         }
@@ -3830,11 +3830,11 @@ class block_behaviour_complete_exporter {
 
             $coords[] = array(
                 'changed' => $r->changed,
-                'type'    => $module['type'],
-                'name'    => $module['name'],
-                'sect'    => $module['sect'],
-                'xcoord'  => $r->xcoord,
-                'ycoord'  => $r->ycoord,
+                'type' => $module['type'],
+                'name' => $module['name'],
+                'sect' => $module['sect'],
+                'xcoord' => $r->xcoord,
+                'ycoord' => $r->ycoord,
                 'visible' => intval($r->visible),
             );
         }
@@ -3888,12 +3888,12 @@ class block_behaviour_complete_exporter {
             }
 
             $comments[] = array(
-                'userid'    => $studyid,
-                'coordsid'  => $r->coordsid,
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
                 'clusterid' => $r->clusterid,
                 'studentid' => $studentid,
                 'commentid' => $r->commentid,
-                'remark'    => $r->remark
+                'remark' => $r->remark
             );
         }
 
@@ -3943,12 +3943,12 @@ class block_behaviour_complete_exporter {
             }
 
             $manmembers[] = array(
-                'userid'       => $studyid,
-                'coordsid'     => $r->coordsid,
-                'clusterid'    => $r->clusterid,
-                'iteration'    => $r->iteration,
-                'clusternum'   => $r->clusternum,
-                'studentid'    => $studentid
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
+                'clusterid' => $r->clusterid,
+                'iteration' => $r->iteration,
+                'clusternum' => $r->clusternum,
+                'studentid' => $studentid
             );
         }
 
@@ -3988,13 +3988,13 @@ class block_behaviour_complete_exporter {
             }
 
             $manclusters[] = array(
-                'userid'     => $studyid,
-                'coordsid'   => $r->coordsid,
-                'clusterid'  => $r->clusterid,
-                'iteration'  => $r->iteration,
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
+                'clusterid' => $r->clusterid,
+                'iteration' => $r->iteration,
                 'clusternum' => $r->clusternum,
-                'centroidx'  => $r->centroidx,
-                'centroidy'  => $r->centroidy
+                'centroidx' => $r->centroidx,
+                'centroidy' => $r->centroidy
             );
         }
 
@@ -4044,14 +4044,14 @@ class block_behaviour_complete_exporter {
             }
 
             $members[] = array(
-                'userid'     => $studyid,
-                'coordsid'   => $r->coordsid,
-                'clusterid'  => $r->clusterid,
-                'iteration'  => $r->iteration,
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
+                'clusterid' => $r->clusterid,
+                'iteration' => $r->iteration,
                 'clusternum' => $r->clusternum,
-                'studentid'  => $studentid,
-                'centroidx'  => $r->centroidx,
-                'centroidy'  => $r->centroidy,
+                'studentid' => $studentid,
+                'centroidx' => $r->centroidx,
+                'centroidy' => $r->centroidy,
             );
         }
 
@@ -4091,13 +4091,13 @@ class block_behaviour_complete_exporter {
             }
 
             $clusters[] = array(
-                'userid'       => $studyid,
-                'coordsid'     => $r->coordsid,
-                'clusterid'    => $r->clusterid,
-                'iteration'    => $r->iteration,
-                'clusternum'   => $r->clusternum,
-                'centroidx'    => $r->centroidx,
-                'centroidy'    => $r->centroidy,
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
+                'clusterid' => $r->clusterid,
+                'iteration' => $r->iteration,
+                'clusternum' => $r->clusternum,
+                'centroidx' => $r->centroidx,
+                'centroidy' => $r->centroidy,
                 'usegeometric' => $r->usegeometric,
             );
         }
@@ -4148,8 +4148,8 @@ class block_behaviour_complete_exporter {
             }
 
             $centres[] = array(
-                'userid'    => $studyid,
-                'coordsid'  => $r->coordsid,
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
                 'studentid' => $studentid,
                 'centroidx' => $r->centroidx,
                 'centroidy' => $r->centroidy,
@@ -4202,12 +4202,12 @@ class block_behaviour_complete_exporter {
             }
 
             $centroids[] = array(
-                'userid'    => $studyid,
-                'coordsid'  => $r->coordsid,
+                'userid' => $studyid,
+                'coordsid' => $r->coordsid,
                 'studentid' => $studentid,
-                'totalx'    => $r->totalx,
-                'totaly'    => $r->totaly,
-                'numnodes'  => $r->numnodes,
+                'totalx' => $r->totalx,
+                'totaly' => $r->totaly,
+                'numnodes' => $r->numnodes,
                 'centroidx' => $r->centroidx,
                 'centroidy' => $r->centroidy,
             );
@@ -4249,9 +4249,9 @@ class block_behaviour_complete_exporter {
             }
 
             $scales[] = array(
-                'userid'   => $studyid,
+                'userid' => $studyid,
                 'coordsid' => $r->coordsid,
-                'scale'    => $r->scale
+                'scale' => $r->scale
             );
         }
 
@@ -4308,13 +4308,13 @@ class block_behaviour_complete_exporter {
             }
 
             $coords[] = array(
-                'userid'  => $studyid,
+                'userid' => $studyid,
                 'changed' => $r->changed,
-                'type'    => $module['type'],
-                'name'    => $module['name'],
-                'sect'    => $module['sect'],
-                'xcoord'  => $r->xcoord,
-                'ycoord'  => $r->ycoord,
+                'type' => $module['type'],
+                'name' => $module['name'],
+                'sect' => $module['sect'],
+                'xcoord' => $r->xcoord,
+                'ycoord' => $r->ycoord,
                 'visible' => intval($r->visible),
             );
         }
@@ -4367,10 +4367,10 @@ class block_behaviour_complete_exporter {
             }
 
             $logs[] = array(
-                'type'   => $module['type'],
-                'name'   => $module['name'],
+                'type' => $module['type'],
+                'name' => $module['name'],
                 'userid' => $studyid,
-                'time'   => $time++
+                'time' => $time++
             );
         }
 
